@@ -1,0 +1,52 @@
+import os
+from pathlib import Path
+import platform
+import tempfile
+
+
+from dotenv import load_dotenv
+load_dotenv('/opt/telelimoilou/.env')
+
+
+# Exemple de configuration pour Télé Limoilou
+# Copiez ce fichier sous le nom 'config.py' et adaptez les valeurs.
+
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "votre-cle-anthropic")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "votre-cle-openai")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "votre-cle-gemini")
+
+# Configuration de base du serveur Plex
+PLEX_BASEURL = os.getenv('PLEX_BASEURL', 'http://192.168.68.3:32400')
+PLEX_TOKEN = os.getenv('PLEX_TOKEN', 'token-plex')
+
+# Correspondance entre points de montage Linux et partages Windows
+PATH_MAPPINGS = {
+    'Linux': '/mnt/',
+    'Windows': '//MEDIAS/'
+}
+
+OS_NAME = platform.system()
+BASE_PATH = PATH_MAPPINGS.get(OS_NAME, '/mnt/')
+
+# Répertoires de sortie communs
+TRANSCODE_DIR = Path(tempfile.gettempdir()) / 'transcode'
+GENMESSAGE_DIR = Path(tempfile.gettempdir()) / 'genmessage'
+MESSAGE_OUTPUT_DIR = Path(BASE_PATH) / 'medias_0/Video/tvenfants/messages'
+MESSAGE_ARCHIVE_DIR = Path(BASE_PATH) / 'medias_0/Video/tvenfants/messages-archive'
+TVLIMOILOU_DIR = Path(BASE_PATH) / 'medias_0/Video/Enfants/TVLimoilou'
+
+# Paramètres de transcodage
+# FORMAT_SORTIE détermine la résolution cible de la vidéo générée.
+# Les valeurs possibles sont "720p" ou "1080p".
+FORMAT_SORTIE = "1080p"
+
+# CODEC_VIDEO spécifie le codec d'encodage utilisé :
+# "hevc" pour H.265 ou "h264" pour H.264.
+CODEC_VIDEO = "hevc"
+
+# ACCEL_INTEL active l'accélération matérielle Intel si disponible.
+ACCEL_INTEL = True
+
+# BITRATE_VIDEO indique le débit cible de la vidéo (en kb/s).
+# Il est utilisé pour limiter la taille du fichier final.
+BITRATE_VIDEO = 1000

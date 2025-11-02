@@ -1,0 +1,32 @@
+# Exclure l’environnement virtuel Python
+venv/
+
+# Exclure les fichiers vidéo et audio générés
+*.mp4
+*.mp3
+
+# Exclure les fichiers log
+*.log
+log.txt
+logmessages.txt
+output.log
+
+# Exclure les fichiers de sauvegarde anciens
+*.old.py
+*.old
+*.txt
+
+#ecluse les backups
+backup/
+
+# Fichiers de configuration et de données locaux
+config.py
+bd_videos.json
+emissions_def.json
+listegeneration.json
+messages.json
+.env
+
+
+__pycache__/
+*.pyc

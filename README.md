@@ -77,7 +77,46 @@ cp messages.json.sample messages.json
 
 Faites de même pour `config.py` en partant de `config.py.sample`.
 
+## Interface CLI (Nouveau!)
+
+**Télé Limoilou v2** inclut maintenant une interface de gestion interactive en ligne de commande!
+
+### Lancement du CLI
+
+```bash
+python cli.py
+```
+
+L'interface CLI offre :
+
+- **Menu interactif** avec navigation au clavier
+- **Affichage élégant** avec couleurs, tableaux et panneaux
+- **Gestion facilitée** de toutes les opérations
+- **Éditeur de liste** pour modifier la planification
+- **Statistiques** en temps réel du système
+- **Feedback visuel** pour chaque opération
+
+### Fonctionnalités disponibles
+
+1. Scanner les vidéos
+2. Générer la liste d'émissions
+3. Générer les messages IA
+4. Régénérer l'émission du jour (complet: message + transcodage + copie + Plex)
+5. Éditer la liste de génération
+6. Afficher le statut et statistiques
+7. Quitter
+
+Pour plus de détails, consultez [CLI_README.md](CLI_README.md).
+
 ## Exemple d'exécution
+
+### Avec l'interface CLI (recommandé)
+
+```bash
+python cli.py
+```
+
+### Avec les scripts individuels
 
 Pour lancer la chaîne complète de génération :
 
